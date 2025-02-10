@@ -1,0 +1,258 @@
+/* this url for the google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,800;1,500&display=swap');
+
+/*  Define variables */
+:root
+    {
+        --color-primary:#7380ec;
+        --color-danger:#ff7782;
+        --color-success:#41f1b6;
+        --color-warning:#ffbb55;
+        --color-white:#fff;
+        --color-info-dark:#7d8da1;
+        --color-info-light:#dce1eb;
+        --color-dark:#363949;
+        --color-light:#rgba(132,139,200,0.18);/*Opacity */
+        --color-primary-variant:#111e88;
+        --color-dark-variant:#677483;
+        --color-background:#f6f6f9;
+
+
+        --card-border-radius:2rem;
+        --border-radius-1:0.4rem;
+        --border-radius-1:0.8rem;
+        --border-radius-1:1.2rem;
+
+
+        --card-padding:1.8rem;
+        --pading-1:1.2rem;
+
+        --box-shadow:0 2rem 3rem var(--color-light);
+    }
+
+
+
+
+*
+    {
+        margin:0;/* Removes default margin from all elements */
+        padding:0;/* Removes default padding */
+        outline:0; /*  Removes focus outlines  */
+        appearance: none;/* Removes default styles of form elements in some browsers */
+        border:0;/* Removes borders from all elements */
+        text-decoration: none; /* Removes underlines from links */
+        list-style: none; /* Removes bullets/numbers from lists */
+        box-sizing: border-box;  /* Ensures padding and border don’t affect width/height */
+    }
+
+
+
+
+html
+    {
+        width: 100vw;
+        height:100vh;
+        font-family: poppins,sans-serif;
+        font-size:0.88rem;
+        background:var(--color-background);
+        user-select: none; /*You cannot select this text*/
+        overflow-x: hidden;/* It hides any content that overflows horizontally, preventing a horizontal scrollbar. */
+    }
+
+.container
+    {
+        display: grid;/* Enables CSS Grid layout */
+        width:96%; /* Makes the container 96% of the viewport width */
+        margin: 0 auto;  /* Centers the container horizontally */
+        gap:1.8rem;  /* Adds spacing (gap) between grid items */
+        grid-template-columns: 14rem auto 23rem; /* Defines three columns */
+
+    }
+
+a
+    {
+        color:var(color)
+    }
+
+
+img     
+    {
+        display:block;
+        width: 100%;
+    }
+
+
+h1  
+    {
+        font-weight: 800;
+        font-size: 1.8rem;
+    }
+
+
+h2
+    {
+        font-size:1.4rem;
+    }
+
+
+h3          
+    {
+        font-size: 0.87rem;
+    }
+
+
+h4  
+    {
+        font-size: 0.8rem;
+    }
+
+
+h5
+    {
+        font-family: 0.7rem;
+    }
+
+
+p
+    {
+        color:var(--color-dark-variant);
+    }
+
+b
+    {
+        color:var(--color-dark-variant);
+    }
+    
+small
+    {
+        font-size: 0.75rem;
+    }
+
+
+.profile-photo
+    {
+        width:2.8rem;
+        height:2.8rem;
+        border-radius: 50%;
+        overflow:hidden;
+    }
+
+
+.text-muted
+    {
+        color:var(--color-info-dark)
+    }
+
+.primary
+    {
+        color:var(--color-primary);
+    }
+
+.danger
+    {
+        color:var(--color-danger);
+    }
+
+.success
+    {
+        color:var(--color-success);
+    }
+
+.warning
+    {
+        color:var(--color-warning);
+    }
+
+
+/* ===================================SIDETOP=========================== */
+
+aside
+    {
+        height:100vh;
+    }
+
+aside .top
+    {
+        background: white;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1.4rem;
+    }
+
+aside .logo
+    {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+aside .logo img
+    {
+        width: 4rem;
+        height:4rem;
+    }
+
+aside .close
+    {
+        display: none;
+    }
+
+/* ===================================SIDEBAR=========================== */
+aside .sidebar
+    {
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        height: 86vh;
+        position:relative;
+        top:3rem;
+    }
+
+
+
+
+aside h3
+    {
+        font-weight: 500;
+    }
+
+
+aside .sidebar a
+    {
+        display:flex;/* Makes the link a flex container */
+        color:var(--color-info-dark);
+        margin-left:2rem;/* Moves the link 2rem to the right */
+        gap:1rem;/* Adds spacing between child elements inside the link */
+        align-items: center;/* Aligns items vertically in the center */
+        position: relative;/* Allows absolute positioning of pseudo-elements if needed */
+        height:3.7rem;/* Sets a fixed height for each link */
+        transition: all 300ms ease;/* Smooth animation effect for hover interactions */
+    }
+   
+    
+
+aside .sidebar a:last-child
+    {
+        position:absolute ;
+        bottom:2rem;
+        width:100%;
+    }
+
+
+
+aside .sidebar a:active
+    {
+        background: var(--color-light);
+        color:var(--color-primary);
+        margin-left: 0;
+    }
+
+
+aside .sidebar a.active:before
+    {
+        content: "";
+        width:6px;
+        height:100%;
+        background:var(--color-primary);
+    }
