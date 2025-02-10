@@ -46,9 +46,12 @@
     }
 
 
+html    
+    {
+        font-size: 14px;
+    }
 
-
-html
+body
     {
         width: 100vw;
         height:100vh;
@@ -57,7 +60,12 @@ html
         background:var(--color-background);
         user-select: none; /*You cannot select this text*/
         overflow-x: hidden;/* It hides any content that overflows horizontally, preventing a horizontal scrollbar. */
+        color:var(--color-dark);
     }
+
+
+
+
 
 .container
     {
@@ -201,12 +209,13 @@ aside .close
 /* ===================================SIDEBAR=========================== */
 aside .sidebar
     {
-        background: #fff;
-        display: flex;
-        flex-direction: column;
+        /* background: #fff; */
+        
+        display: flex;/* Makes the sidebar a flexbox container, allowing easy alignment of child elements. */
+        flex-direction: column;/*Ensures that sidebar items stack vertically.*/
         height: 86vh;
-        position:relative;
-        top:3rem;
+        position:relative;/*Ensures it moves relative to its normal position.*/
+        top:3rem; /*Moves the sidebar 3rem down from its normal position.*/
     }
 
 
@@ -214,7 +223,7 @@ aside .sidebar
 
 aside h3
     {
-        font-weight: 500;
+        font-weight: 500;/*Sets a medium font weight for sidebar headings.*/
     }
 
 
@@ -230,29 +239,148 @@ aside .sidebar a
         transition: all 300ms ease;/* Smooth animation effect for hover interactions */
     }
    
-    
+aside .sidebar a span
+    {
+        font-size: 1.6rem; /*Sets the icon size inside the link.*/
+        transition: all 300ms ease; /*Smooth animation effect when hovered.*/
+    }
 
 aside .sidebar a:last-child
     {
-        position:absolute ;
-        bottom:2rem;
-        width:100%;
+        position:absolute ; /*Moves the last sidebar link to the bottom.*/
+        bottom:2rem; /*Fixes the last link 2rem from the bottom.*/
+        width:100%;/*Ensures it takes full sidebar width.*/
     }
 
 
 
 aside .sidebar a:active
     {
-        background: var(--color-light);
-        color:var(--color-primary);
-        margin-left: 0;
+        background: var(--color-light); /*Changes background when the link is clicked.*/
+        color:var(--color-primary); /*Changes text color when active.*/
+        margin-left: 0;/*Moves the link to the left when clicked.*/
     }
 
 
 aside .sidebar a.active:before
     {
-        content: "";
+        content: ""; /*Creates a pseudo-element before active links.*/
         width:6px;
         height:100%;
-        background:var(--color-primary);
+        background:var(--color-primary); /*Uses the primary color for the active indicator.*/
     }
+
+
+
+aside .sidebar a.active span
+    {
+        color:var(--color-primary); /*Highlights the active link text.*/
+        margin-left: calc(1rem-3px); /*Moves text slightly left for better alignment.*/
+    }
+
+
+
+aside .sidebar a:hover
+    {
+        color: var(--color-primary); /*Changes text color on hover.*/
+    }
+
+
+aside .sidebar a:hover span
+    {
+        margin-left: 1rem; /*Moves icons slightly to the right on hover for an animation effect.*/
+    }
+
+
+aside .sidebar .message-count
+    {
+        background: var(--color-danger);
+        color:var(--color-white);
+        padding:2px 10px;
+        font-size: 11px;
+        border-radius: var(--border-radius-1);
+    }
+
+
+
+/* =========================================MAIN========================= */
+main
+    {
+        /*Adds spacing above the main content to separate it from the navbar or header.*/
+        margin-top: 1.4rem;   
+    }
+
+main .date
+    {
+        
+        /*Makes the date container wrap around its content (not full width).*/
+        display:inline-block; 
+
+        background: var(--color-light);
+        /*Adds rounded corners for a softer look.*/
+        border-radius: var(--border-radius-1);
+        /* Pushes the date container down by 1rem. */
+        margin-top: 1rem;
+        /* Adds inner spacing (top-bottom: 0.5rem, left-right: 1.6rem). */
+        padding:0.5rem 1.6rem;
+    }
+
+/* 
+main-->Targets the <main> element (the main content area).
+.date--->Targets elements with the class date inside <main>.
+
+input[type="date"]	--->
+Specifically selects only date input fields inside .date. */
+main .date input[type="date"]
+    {
+        /* Removes default browser styling for the date picker, 
+        making it blend into the container. */
+        background: transparent;
+        color:var(--color-dark);
+    }
+
+
+
+main .insights
+    {
+        /* Makes .insights a CSS Grid container, 
+        allowing child elements to align in a 
+        structured grid layout. */
+        display: grid;
+
+        /* Creates 3 equal columns, 
+        each taking one-third (1fr) of 
+        the available space. */
+        grid-template-columns: repeat(3,1fr);
+
+        /*Adds space (1.6rem) between grid items
+        to improve readability and design.*/
+        gap: 1.6rem;
+    }
+
+main .insights > div
+    {
+        background: var(--color-white);
+        padding:var(--card-padding);
+        border-radius: var(--card-border-radius);
+        margin-top: 1rem;
+        box-shadow: var(--box-shadow);
+        transition:all 300ms ease;
+    }
+
+
+main .insights >div:hover
+    {
+        box-shadow: none;
+    }
+
+
+main .insights >div span    
+    {
+        background: var(--color-primary);
+        padding: 0.5rem;
+        border-radius: 50%;
+        color:var(--color-white);
+        font-size: 2rem;
+    }
+
