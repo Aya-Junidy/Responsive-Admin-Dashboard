@@ -12,20 +12,20 @@
         --color-info-dark:#7d8da1;
         --color-info-light:#dce1eb;
         --color-dark:#363949;
-        --color-light:#rgba(132,139,200,0.18);/*Opacity */
+        --color-light:rgba(132,139,200,0.18);/*Opacity */
         --color-primary-variant:#111e88;
         --color-dark-variant:#677483;
         --color-background:#f6f6f9;
 
 
-        --card-border-radius: 2rem;
-        --border-radius-1:    0.4rem;
-        --border-radius-2:    0.8rem;
-        --border-radius-3:    1.2rem;
+        --card-border-radius:2rem;
+        --border-radius-1:0.4rem;
+        --border-radius-2:0.8rem;
+        --border-radius-3:1.2rem;
 
 
-        --card-padding:  1.8rem;
-        --pading-1:      1.2rem;
+        --card-padding:1.8rem;
+        --pading-1:1.2rem;
 
         --box-shadow:0 2rem 3rem var(--color-light);
     }
@@ -33,8 +33,8 @@
 
 
 
-*
-    {
+
+*    {
         margin:0;/* Removes default margin from all elements */
         padding:0;/* Removes default padding */
         outline:0; /*  Removes focus outlines  */
@@ -48,7 +48,7 @@
 
 html    
     {
-        font-size: 14px;
+        font-size:14px;
     }
 
 body
@@ -63,26 +63,27 @@ body
         color:var(--color-dark);
     }
 
-
-
 .container
     {
+       
         display: grid;/* Enables CSS Grid layout */
-        width:96%; /* Makes the container 96% of the viewport width */
-        margin: 0 auto;  /* Centers the container horizontally */
-        gap:1.8rem;  /* Adds spacing (gap) between grid items */
+        width:98%; /* Makes the container 96% of the viewport width */
+        margin:0 auto;  /* Centers the container horizontally */
+        gap:1rem;  /* Adds spacing (gap) between grid items */
         grid-template-columns: 14rem auto 23rem; /* Defines three columns */
 
     }
+
+
 a
     {
-        color:var(--color-dark)
+        color:var(--color-dark);
     }
 
 img     
     {
         display:block;
-        width: 100%;
+        width:100%;
     }
 
 h1  
@@ -107,8 +108,6 @@ h4
     {
         font-size: 0.8rem;
     }
-
-
 h5
     {
         font-family: 0.7rem;
@@ -167,27 +166,31 @@ b
         color:var(--color-warning);
     }
     
-/* ===================================SIDETOP=========================== */
+
+
+/* =================================================================SIDETOP========================================================= */
 
 aside
     {
         height:100vh;
+        
     }
 
 aside .top
     {
-        background: white;
+        /* background: white; */
         display:flex;
         align-items: center;
         justify-content: space-between;
         margin-top: 1.4rem;
+        background-color: var(--color-white);
     }
 
 aside .logo
     {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.8rem;
     }
 
 aside .logo img
@@ -204,13 +207,13 @@ aside .close
 /* ===================================SIDEBAR=========================== */
 aside .sidebar
     {
-        /* background: #fff; */
+        background: #fff;
         
         display: flex;/* Makes the sidebar a flexbox container, allowing easy alignment of child elements. */
         flex-direction: column;/*Ensures that sidebar items stack vertically.*/
-        height: 86vh;
+        height: 90vh;
         position:relative;/*Ensures it moves relative to its normal position.*/
-        top:3rem; /*Moves the sidebar 3rem down from its normal position.*/
+        top:1rem; /*Moves the sidebar 3rem down from its normal position.*/
     }
 
 
@@ -237,7 +240,7 @@ aside .sidebar a
 aside .sidebar a span
     {
         font-size: 1.6rem; /*Sets the icon size inside the link.*/
-        transition: all 300ms ease; /*Smooth animation effect when hovered.*/
+        transition: all 300ms ease; /*Smooth animation effect when hovered. */
     }
 
 aside .sidebar a:last-child
@@ -277,7 +280,7 @@ aside .sidebar a.active span
 
 aside .sidebar a:hover
     {
-        color: var(--color-primary); /*Changes text color on hover.*/
+        color:var(--color-primary); /*Changes text color on hover.*/
     }
 
 
@@ -298,11 +301,12 @@ aside .sidebar .message-count
 
 
 
-/* =========================================MAIN========================= */
+/* ====================================================================MAIN========================================================= */
 main
     {
         /*Adds spacing above the main content to separate it from the navbar or header.*/
-        margin-top: 1.4rem;   
+        margin-top: 1.4rem;  
+         
     }
 
 main .date
@@ -353,6 +357,11 @@ main .insights
         gap: 1.6rem;
     }
 
+main .insights small
+{
+    margin-top: 1.3rem;
+    display: block;
+}
 
 /* styles the direct child <div> elements inside .insights,
  which is inside <main> */
@@ -426,14 +435,15 @@ main .insights h3
 
 /* styles the progress indicator inside 
 each dashboard card */
-main .inights .progress
-    {
-        position: relative;
-        width: 92px;
-        height: 92px;
-        border-radius: 50%;
-    }
-
+main .insights .progress {
+    position: relative;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 main .insights svg 
     {
@@ -441,38 +451,75 @@ main .insights svg
         height: 7rem;
     }
 
+
+/* styles the <circle> elements inside
+<svg> graphics within .insights */
 main .insights svg circle
     {
+        /* Removes any fill color inside the circle,
+         making it transparent. */
         fill: none;
+        /* Sets the stroke (outline) color of the circle */
         stroke: var(--color-primary);
         stroke-width: 14;
+        
+        /* Rounds the ends of the stroke, 
+        making it look smooth. */
         stroke-linecap: round;
+
+
+        /* Moves the circle slightly (5px right and 5px down) 
+        to align properly inside the <svg> container. */
         transform: translate(5px, 5px);
+
+        /* Controls the stroke pattern. 
+        This value means the stroke is drawn in segments of 110px,
+        creating a progress-circle effect. */
         stroke-dasharray: 110;
+
+        /* Moves the stroke pattern along the path.
+        This determines how much of the circle is filled, 
+        creating the visual effect of a progress indicator */
         stroke-dashoffset: 92;
     }
 
-main .insights .progress .number 
-    {
-        position:absolute;
-        top: 0;
-        left: 0;
-        height:100%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
 
+
+/* positions the .number element inside .progress,
+ ensuring it is centered within the circular progress bar */
+main .insights .progress .number {
+        position: absolute;
+
+        /* Moves the .number 45% 
+        from the top of its parent (.progress). */
+        top: 45%;
+        /* Moves the .number 50% from the left of its parent (.progress),
+         aligning it horizontally */
+        left: 50%;
+
+        /* Offsets the element by half of its
+         own width and height, ensuring it stays perfectly
+         centered inside the progress circle */
+        transform: translate(-50%, -50%);
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: var(--color-dark);
+
+
+        /* Ensures the element only takes up as much
+         space as needed for the text. */
+        width: auto;
+        height: auto;
     }
 
-/* ---------------------------expenses----------------------- */
+/* ---------------------------------sales--------------------------------- */
 main .insights .sales svg circle
     {
         stroke-dashoffset: -30;
         stroke-dasharray: 200;
     }
 
-/* ---------------------------expenses----------------------- */
+/* ----------------------------------expenses----------------------------- */
 main .insights > div .expenses span 
     {
         background: var(--color-danger);
@@ -495,4 +542,166 @@ main .insights .income svg circle
     {
         stroke-dashoffset: 35;
         stroke-dasharray: 110;
+    }
+
+
+
+
+
+
+/* ===============================================================RECENT ORDERS=================================================== */
+main .recent-orders
+    {
+        margin-top: 2rem;  
+    }
+
+
+main .recent-orders h2
+    {
+        margin-bottom: 0.8rem;
+    }
+
+main .recent-orders table
+    {
+        background: var(--color-white);
+        width: 100%;
+        border-radius: var(--card-border-radius);
+        padding: var(--card-padding);
+        text-align: center;
+        box-shadow: var(--box-shadow);
+        transition:all 300ms;
+    }
+
+main .recent-orders table:hover 
+    {
+        box-shadow: none;
+    }
+
+
+main table tbody td
+    {
+        height: 2.8rem;
+        border-bottom: 1px solid var(--color-light);
+        color: var(--color-dark-variant);
+    }
+
+main table tbody tr:last-child
+    {
+        border: none;
+    }
+
+main .recent-orders a
+    {
+        text-align: center;
+        display: block;
+        margin: 1rem auto;
+        color: var(--color-primary);
+    }
+
+/* =================================================================RIGHT========================================= */
+.right
+    {
+        margin-top: 1.4rem;
+        
+        
+    }
+
+.right .top 
+    {
+
+        display: flex;
+        justify-content: center;
+        gap:2rem;
+        height: 0.1rem;
+        gap: 5rem;
+        
+        
+
+       
+    }
+
+.right .top button 
+    {
+        display: none;
+    }
+
+
+.right .theme-toggler
+    {
+        background: var(--color-light);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 2rem;
+        width: 6rem;
+        cursor: pointer;
+        border-radius: var(--border-radius-1);
+        
+    }
+
+
+.right .theme-toggler span 
+    {
+        font-size: 1.2rem;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+.right .theme-toggler span.active
+    {
+        background:var(--color-primary);
+        color: white;
+        border-radius: var(--border-radius-1);
+    }
+
+.right .top .profile 
+    {
+        display: flex;
+        gap:0.1rem;
+        text-align: right;
+        
+    }
+
+
+
+/*---------------------------RESENT UPDATES------------------------- */
+
+.right .recent-updates  
+    {
+        margin-top: 4rem;
+        margin-right: 2rem;
+        
+    }
+
+.right .recent-updates h2 
+    {
+        margin-bottom: 0.8rem;
+    }
+
+
+.right .recent-updates .updates 
+    {
+        background: var(--color-white);
+        padding: var(--card-padding);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--box-shadow);
+        transition: all 300ms ease;
+    }
+
+.right .recent-updates .updates:hover
+    {
+        box-shadow: none;
+    }
+
+.right .recent-updates .updates .update
+    {
+        display: grid;
+        grid-template-columns: 3.5rem auto;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        
     }
