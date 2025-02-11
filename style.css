@@ -791,6 +791,11 @@ main .recent-orders a
 
     }
 
+.right .sales-analytics .add-product:hover
+    {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+    }
 
 .right .sales-analytics .add-product div 
     {
@@ -803,7 +808,6 @@ main .recent-orders a
     {
         font-weight: 600;
     }
-
 
 
 /* =============================================================================MEDIA QUERIES======================================================= */
